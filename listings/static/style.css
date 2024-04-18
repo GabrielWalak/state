@@ -1,0 +1,53 @@
+.nieruchomosci-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumny o równej szerokości */
+    gap: 20px; /* Odstęp między elementami */
+}
+
+.nieruchomosc {
+    border: 1px solid #ccc; /* Ramka wokół nieruchomości */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    overflow: hidden; /* Ukryj zawartość, która wychodzi poza ramkę */
+}
+
+.nieruchomosc img {
+    width: 100%; /* Rozciągnij zdjęcie na całą szerokość */
+    height: 200px; /* Ustaw wysokość zdjęcia */
+    object-fit: cover; /* Dopasuj zdjęcie do ramki, zachowując proporcje */
+}
+
+.nieruchomosc-info {
+    padding: 10px; /* Odstęp wewnątrz elementu z informacjami */
+    color: blueviolet;
+}
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px; /* Szerokość paska bocznego */
+    background-color: #f0f0f0; /* Kolor tła */
+    padding: 20px; /* Odstęp */
+}
+
+.sidebar ul {
+    list-style: none; /* Usuń znaczniki listy */
+    padding: 0;
+}
+
+.sidebar li a {
+    display: block; /* Wyświetl linki jako bloki */
+    padding: 10px;
+    text-decoration: none; /* Usuń podkreślenie */
+    color: #333; /* Kolor tekstu */
+}
+
+.sidebar li a:hover {
+    background-color: #ddd; /* Kolor tła po najechaniu */
+}
+
+.content {
+    flex: 1; /* Zajmij pozostałą przestrzeń */
+    padding: 20px;
+}
+

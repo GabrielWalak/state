@@ -1,0 +1,47 @@
+<html>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="topnav">
+  <input type="text" placeholder="Search..">
+    <p> filrowanie</p>
+</div>
+<div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="{% url 'edytuj_nieruchomosc' %}">Edytuj</a></li>
+                <li><a href="{% url 'dodaj_nieruchomosc' %}">Dodaj nieruchomość</a></li>
+                <li><a href="{% url 'lista_najemcow' %}">Najemcy</a></li>
+                <li><a href="{% url 'kalendarz_najmow' %}">Kalendarz najmów</a></li>
+                <li><a href="{% url 'lista_oplat' %}">Opłaty</a></li>
+                <li><a href="{% url 'raporty' %}">Raporty</a></li>
+                <li><a href="{% url 'ustawienia' %}">Ustawienia</a></li>
+            </ul>
+        </div>
+<div class="nieruchomosci-lista">
+    {% for nieruchomosc in nieruchomosci %}
+        <div class="nieruchomosc">
+            {% if nieruchomosc.zdjecie_set.all %}
+                {% with zdjecie=nieruchomosc.zdjecie_set.first %}
+                    <img src="{{ zdjecie.Obraz.url }}" alt="{{ nieruchomosc.Typ_nieruchomosci }}">
+                {% endwith %}
+            {% else %}
+                
+            {% endif %}
+            <div class="nieruchomosc-info">
+                <h3>{{ nieruchomosc.Typ_nieruchomosci }}</h3>
+                <p>Status: {{ nieruchomosc.Status }}</p>
+                <p>{{ nieruchomosc.ID_adresu }}</p>
+                <p>Cena: {{ nieruchomosc.Cena }} PLN</p>
+                <p>Powierzchnia: {{ nieruchomosc.Powierzchnia }} m2</p>
+                <p>Liczba pokoi: {{ nieruchomosc.Liczba_pokoi }}</p>
+                <!-- ... inne dane ... -->
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+</body>
+</html>
